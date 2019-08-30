@@ -1,0 +1,32 @@
+<!--pages/guanliTeam/guanliTeam.wxml-->
+
+
+<view class="all_member">
+  <view class="all_list_li_li">
+    <view class="all_member_title">{{teamName}}</view>
+    <view wx:if="{{isYaoQin}}" bindtap="xiugaiTeamName" data-it="{{item}}" data-coazuoType="4" class="iconfont icon-bianji all_list_li_li_xiugai"></view>
+  </view>
+  
+  <view class="all_member_guan">
+    <view class="all_member_guan_num">共有{{memberNum}}名成员</view>
+    <view wx:if="{{isYaoQin}}" bindtap="tiaozhuanGuanli" class="tianjia_icon iconfont icon-tianjia1">
+    </view>
+  </view>
+  <view wx:for="{{memberList}}">
+    <view bindtap="showComponent" class="all_list_li">
+      <view class="all_list_li_li">
+        <image src="{{item.headImg}}" class="all_list_li_img"></image>
+        <view class="all_list_li_nicheng" style="color:{{item.memberType==1 ? '#00CD9A':''}}">{{item.memberName||item.nickName}}</view>
+        <view wx:if="{{item.memberType==1}}" class="all_list_li_chuangjian">创建者</view>
+      </view>
+      <view class="all_list_li_li">
+        <view wx:if="{{item.memberType!=1}}" bindtap="deleteMember" data-it="{{item}}" data-coazuoType="2" class="iconfont icon-shanchu all_list_li_li_shanchu"></view>
+        <view wx:if="{{item.isQuanXian}}" bindtap="tanchukuang" data-it="{{item}}" data-coazuoType="1" class="iconfont icon-bianji all_list_li_li_xiugai"></view>
+      </view>
+      
+    </view>
+  </view>
+  <view wx:if="{{isYaoQin}}" class="all_member_jieshan" bindtap="deleteTeam" data-coazuoType="3">解散小组</view>
+</view>
+
+<tankuang id="tankuangComponent" chengyuantouxiang="{{chengyuantouxiang}}" nicheng="{{nicheng}}" userId="{{userId}}" groupId="{{groupId}}" coazuoType="{{coazuoType}}" teamName="{{teamName}}"/>

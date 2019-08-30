@@ -1,0 +1,33 @@
+<!--pages/myTeamguanli/myTeamguanli.wxml-->
+<view class="wind">
+  <block wx:for="{{teamDetail}}">
+    <view class="wind_card" bindtap="guanliTeam" data-itm="{{item}}">
+      <view class="wind_card_title">{{item.groupName}}</view>
+      <view class="wind_card_img">
+        <view wx:for="{{item.memberCards}}" wx:for-item="ite" wx:key="{{index}}" >
+          <view wx:if="{{index<5}}" >
+            <view class="team_left_wkc" bindtap="alertDetail" data-chengyuan="{{ite}}">
+              <image src="{{ite.memberHeadImg}}" bindtap="showComponent" class="team_left_wkc_img"></image>
+            </view>
+          </view>
+          <view class="team_left_caoguo" wx:if="{{item.memberCards.length>5}}">
+            <button bindtap='showAllMember' wx:if="{{item.memberCards.length>5}}">...</button>
+          </view>
+        </view>
+      </view>
+      
+      <view class="wind_card_delt">
+        <view class="wind_card_delt_chengyuan">
+          <view class="wind_card_delt_chengyuan_cy">成员</view>
+          <view class="wind_card_delt_chengyuan_num">{{item.memberCards.length}}</view>
+        </view>
+        <view class="wind_card_delt_chengyuan">
+          <view class="wind_card_delt_chengyuan_cy">事情</view>
+          <view class="wind_card_delt_chengyuan_num">{{item.taskAmount}}</view>
+        </view>
+        <view class="wind_card_delt_type">{{type}}</view>
+      </view>
+    
+    </view>
+  </block>
+</view>

@@ -1,0 +1,92 @@
+/* pages/guanliTeam/guanliTeam.wxss */
+@import "../../public/wxss/all.wxss";
+@import "../../public/wxss/tianjia.wxss";
+.all_member {
+  margin: 0rpx 40rpx;
+}
+.all_member_title {
+  font-size: 56rpx;
+  font-family:PingFangSC;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  margin-bottom: 40rpx;
+}
+.all_member_guan {
+  display: flex;
+  /* justify-content: space-between; */
+  margin-bottom: 44rpx;
+}
+.all_member_guan_num {
+  width:220rpx;
+  height:56rpx;
+  line-height: 56rpx;
+  background:rgba(244,246,248,1);
+  border-radius:30rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC;
+  font-weight:400;
+  color:rgba(173,179,188,1);
+  text-align: center;
+}
+.tianjia_icon {
+  width: 60rpx;
+  background-color: #E9FDFA;
+  height: 60rpx;
+  border-radius: 37rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #3FDBB6;
+  font-size: 48rpx;
+  margin-left: 36rpx;
+}
+.all_list_li {
+  display: flex;
+  margin-bottom: 20rpx;
+  justify-content: space-between;
+}
+.all_list_li_li {
+  display: flex;
+  justify-content: space-between;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.all_list_li_li_shanchu {
+  color: rgba(173,179,188,1);
+  font-size: 56rpx;
+}
+.all_list_li_li_xiugai {
+  margin-left: 40rpx;
+  font-size: 56rpx;
+  color: #ADB3BC;
+}
+.all_list_li_img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}
+.all_list_li_nicheng {
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 24rpx;
+}
+.all_list_li_chuangjian {
+  width:128rpx;
+  height:48rpx;
+  line-height: 48rpx;
+  background:rgba(244,246,248,1);
+  border-radius:24rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC;
+  font-weight:400;
+  color:rgba(0,205,154,1);
+  text-align: center;
+  margin: 25rpx 20rpx;
+}
+.all_member_jieshan {
+  font-size:17px;
+  font-family:PingFang-SC;
+  font-weight:400;
+  color:rgba(173,179,188,1);
+  margin: 40rpx auto;
+  text-align: center;
+}

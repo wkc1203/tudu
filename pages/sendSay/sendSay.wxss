@@ -1,0 +1,153 @@
+/* pages/sendSay/sendSay.wxss */
+@import "../../public/wxss/all.wxss";
+@import "../../public/wxss/tianjia.wxss";
+/* @import "../../public/wxss/wode.wxss"; */
+.sendlocation_wei {
+  display: flex;
+}
+
+/* 实现textarea高度自适应 */
+.detail-view {
+  /* 用于重叠 */
+  position: relative;
+  margin: 40rpx 20rpx;
+  min-height: 300rpx;
+  height: 100%
+}
+.detail-placeholder {
+  /* 用于重叠 */
+  position: absolute;
+  /* 用于与textarea的光标起始位置对齐 */
+  margin-top: -12rpx;
+  padding: 0 10rpx;
+  min-height: 100%;
+  color: #c9c9c9;
+  font-size: 28rpx;
+}
+.detail-textarea {
+  /* 用于顶部与text对齐 */
+  /* margin: 40rpx 20rpx; */
+  /* top: -12rpx; */
+  width: 100%;
+  font-size: 32rpx;
+  line-height: 52rpx;
+  height: 100%
+}
+.placeholderClass {
+  line-height:26px;
+  font-size:16px;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(208,212,217,1);
+}
+
+.button_icon_list {
+  display: flex;
+  justify-content: space-between;
+  /* margin-top: 230rpx; */
+  margin-top: 44rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 1px 5px 0px rgba(204,204,204,0.39);
+}
+.icon_button {
+  margin-left: 28rpx;
+  width: 54%;
+  display: flex;
+  justify-content: space-around;
+}
+.fabu_button {
+  flex: 0.8;
+  text-align: center;
+  
+}
+.fabu_buttont {
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #fff;
+}
+
+/* 提示信息居中 */
+.alert_message_wkc {
+  margin: 30rpx auto;
+  text-align: center
+}
+
+.daiban_icon_show {
+  width: 42rpx;
+  height: 42rpx;
+  margin: auto 12rpx;
+}
+/* 切换条滑块 */
+.swiper-tab {
+  width: 100%;
+  display: flex;
+  /* margin: 10rpx 40rpx 40rpx 40rpx; */
+  line-height:70rpx;
+  background:rgba(235,251,247,1);
+  font-size:32rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+}
+.tab-list-left {
+  font-size: 30rpx;
+  display: inline-block;
+  text-align: center;
+}
+.tab-list-right {
+  text-align: center;
+  /* line-height: 72rpx; */
+  font-size: 30rpx;
+  display: inline-block;
+}
+.on {
+  font-size:32rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  width: 67%;
+  color: #FFFFFFFF;
+  background:rgba(0,222,166,1);
+}
+.tab-list_content {
+  display: flex;
+  justify-content: center;
+}
+.tab-list_left_content_neirong,.tab-list_content_pick {
+  margin-left: 12rpx;
+}
+.tab-list-shengyu {
+  width:33%
+}
+
+
+.tixing_time_img {
+  width: 38rpx;
+  height: 46rpx;
+}
+ .tixing_time_content {
+  height:14px;
+  font-size:14px;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(173,179,188,1);
+  line-height:14px;
+ }
+
+.tixingTime{
+  display: flex;
+  /* margin-top:200rpx; */
+  justify-content: space-between
+}
+.tixing_time {
+  display: flex;
+}
+ .text_number_location {
+  float: right;
+  font-size:12px;
+  margin-right: 40rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(215,218,224,1);
+ }

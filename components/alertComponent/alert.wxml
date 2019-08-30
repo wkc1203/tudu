@@ -1,0 +1,15 @@
+
+<view>
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modalDlg" wx:if="{{showModal}}">
+    <!-- {{content}} -->
+    <view class="img_quxiao" bindtap="cancel">X</view>
+    <image src="{{chengyuantouxiang}}" class="img_touxiang"></image>
+    <view class="img_nicheng">{{nicheng}}</view>
+    <view class="img_nicheng_henxian"><view class="img_nicheng_henxian_neirong">与TA关联的事情</view></view>
+    <view bindtap="tiaozhuanGuanlian" class="img_nicheng_guanlianNum">{{guanlianNum}}</view>
+    <view bindtap="tiaozhuanGuanlian" class="img_nicheng_guanlian">关联事情</view>
+
+  </view>
+</view>
+

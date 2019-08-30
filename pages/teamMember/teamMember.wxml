@@ -1,0 +1,22 @@
+<!--pages/teamMember/teamMember.wxml-->
+
+<view class="team_member">
+  <view bindtap="sendMember">完成</view>
+  <view class="list_li_first" bindtap="selectAll">
+    <view>@</view>
+    <view>所有人</view>
+  </view>
+  <checkbox-group bindchange="checkboxChange">
+    <view wx:for="{{memberList}}" wx:key="id">
+        <view class='item_container' bindtap='itemSelected' data-index='{{index}}'>
+          <view class="item_container_tou">
+            <image src="{{item.headImg}}" class="list_li_child_img"></image>
+            <view class="list_li_child_nicheng" style="color:{{item.isSelected?'#00CD9A':''}}">{{item.nickName}}</view>
+          </view>
+          <!-- <image class='select_icon' src="{{item.isSelected?'/image/selected.png':'/image/unselected.png'}}"></image> -->
+          <view wx:if="{{item.isSelected}}" class="iconfont icon-gougou" style="color:#00CD9A"></view>
+        </view>
+    </view>
+  </checkbox-group>
+</view>
+

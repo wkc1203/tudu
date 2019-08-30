@@ -1,0 +1,52 @@
+<!--pages/details/detail.wxml-->
+<wxs src='../index/chooseColor.wxs' module='chooseColor' />
+
+<view class="delti_page">
+  <view class='before_header'>
+    <view class='list_title_left'>
+      <image class="{{detailContent.touxiang?'list_title_left_touxiang':'list_title_left_none'}}" src="{{detailContent.touxiang}}"></image>
+      <view class='{{detailContent.nicheng?"list_title_left_nicheng":"list_title_left_none"}}'>{{detailContent.nicheng}}</view>
+      <view class='list_title_left_happendtime'>{{happendTime}}</view>
+      <view class='list_title_left_happendWeek'>{{happendWeek}}</view>
+    </view>
+    
+    <view class='list_content_detail' >
+      <view style='color:#00B1FFFF'>
+        {{chooseColor.titleColor(detailContent.title)}}
+      </view>
+      <view class="list_content_content">
+        <block wx:for="{{detailContent.content}}" wx:for-item="itecontent" >
+          <view bindtap="alertDetail" data-content="{{itecontent.content}}" data-flag="{{itecontent.gaibian}}" style="color:{{itecontent.gaibian==1?'#8865E6':itecontent.gaibian==2?'#37C87B':''}}" class="list_content_content_list">
+            {{itecontent.content}}
+          </view>
+        </block>
+      </view>
+      
+      
+    </view>
+    <view class="list_content_detail_tixing">
+      {{detailContent.happendDate}}
+    </view>
+  </view>
+
+
+
+  <view class='after_bottom'>
+    <view class='after_bottom_button'>
+      <view class='iconfont icon-zhaopian tubiao_css' style="color:#9EAABA"></view>
+      <view class='iconfont icon-fenxiang tubiao_css' style="color:#9EAABA"></view>
+      <view class='iconfont icon-lajitong tubiao_css' bindtap="deteleShiJian" style="color:#9EAABA"></view>
+      <view wx:if="{{detailContent.status==0}}" class='iconfont icon-qianbi tubiao_css' bindtap="xiugai" style="color:#9EAABA"></view>
+    </view>
+    <view class="after_bottom_switch" wx:if="{{!isFinish}}">
+      <movable-area class="after_bottom_switch_area" style="background:{{dongzuo==0?'rgba(232,236,239,1)':'rgba(255,255,255,1)'}}">
+        {{xianshi}}
+        <movable-view x="{{x}}" y="{{y}}" direction="horizontal" damping="100" friction="3" bindchange="tuodongChange" disabled="{{disabled}}" class="after_bottom_switch_huakuai">
+        {{dongzuo==0?"右滑完成":"事情已完成"}}
+        </movable-view>
+      </movable-area>
+    </view>
+  </view>
+
+</view>
+  <alert id="myComponent" chengyuantouxiang="{{chengyuantouxiang}}" nicheng="{{nicheng}}" guanlianNum="{{guanlianNum}}" memberId="{{memberId}}"/>

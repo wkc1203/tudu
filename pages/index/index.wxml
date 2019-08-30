@@ -1,0 +1,323 @@
+<!--index.wxml-->
+
+<wxs src='chooseColor.wxs' module='chooseColor' />
+
+<view class='pd'>
+  <view class="user">
+    <view class='user_left' bindtap='openMyTeam'>
+      <view class="user_left_img">
+        <open-data type="userAvatarUrl" />
+      </view>
+      <open-data type="userNickName" class="user_left_name"/>
+    </view>
+    <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+      <block wx:for="{{messagList}}">
+        <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate">
+          <swiper-item>
+            <view class="swiper_item">{{item.title}}</view>
+          </swiper-item>
+        </navigator>
+      </block>
+    </swiper>
+  </view>
+  <view class="swiper-tab">
+    <view style="padding-left:5px;" class="tab-list-left {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">
+      <view class="tab-list_content" data-current="0" >
+        <view class='iconfont icon-daiban {{currentTab==0 ? "daiban_icon_show" : ""}}' data-current="0"/>
+        <view class="tab-list_left_content_neirong" data-current="0">待办</view>
+        <view class="tab-list_left_content_number {{currentTab==0 ? 'number_Y' : 'number_N'}}" data-current="0">{{daibanNum}}</view>
+      </view>
+    </view>
+    <view class="tab-list-right {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">
+        <view class="tab-list_content" data-current="1" >
+          <view class='iconfont icon-wancheng {{currentTab==1 ? "wancheng_icon_show" : ""}}' data-current="1"/>
+          <view class="tab-list_left_content_neirong" data-current="1">完成</view>
+          <view class="tab-list_left_content_number {{currentTab==1 ? 'number_Z' : 'number_N'}}" data-current="1">{{finishNum}}</view>
+        </view>
+    </view>
+  </view>
+  <swiper current="{{currentTab}}" bindchange="bindChange" style="height:100%;">
+    <swiper-item>
+    </swiper-item>
+    <swiper-item>
+    </swiper-item>
+  </swiper>
+</view>
+
+  <view wx:if="{{currentTab==0}}">
+    <view wx:for="{{myUnFinish}}" wx:for-item="myUnFinishItem" wx:key="{{happendTime}}">
+      <view >
+        <view class='list_title'>
+          <view class='list_title_happendDate' style="color:{{chooseColor.switchColor(myUnFinishItem.happendDate).titleColor}}">
+            {{myUnFinishItem.happendDate}}
+          </view>
+          <view wx:for="{{myUnFinishItem.shijian}}" wx:for-item="shijianItem" >
+            <view wx:if="{{index===0}}" class='list_title_left'>
+              <view class='list_title_left_happendtime'>{{shijianItem.happendTime}}</view>
+              <view class='list_title_left_happendWeek'>{{shijianItem.happendWeek}}</view>
+            </view>
+          </view>
+        </view>
+        
+
+        <view class='{{chooseColor.manyDayStyle(myUnFinishItem.shijian.length)}}'>
+           <view wx:for="{{myUnFinishItem.shijian}}" wx:for-item="shijianItem" >
+              <view wx:if="{{index>0}}" class='list_title_left'>
+                <view class='list_title_left_happendtime'>{{shijianItem.happendTime}}</view>
+                <view class='list_title_left_happendWeek'>{{shijianItem.happendWeek}}</view>
+              </view>
+              <view wx:if="{{(shijianItem.taskInfos.length) % 2 === 0}}" class='odd_number'>
+                <block wx:for="{{shijianItem.taskInfos}}" wx:key="{{index}}" wx:for-item="items">
+                  <view class='number_block' style='background:{{chooseColor.switchColor(myUnFinishItem.happendDate).background}}' bindtap='skipDetail' data-id='{{items.id}}' data-item="{{items}}" data-happendTime="{{shijianItem.happendTime}}" data-happendWeek="{{shijianItem.happendWeek}}" data-isFinish="false">
+                    <view class='number_block_content' style='color:{{chooseColor.switchColor(myUnFinishItem.happendDate).contentColor}}'>
+                      
+                      <view class='number_block_content_wkc'
+                      >
+                        <view style='color:#00B1FFFF' style="display:{{items.taskTitle ? 'inline':'none'}}">
+                          {{chooseColor.titleColor(items.taskTitle)}}
+                        </view>
+                        <view class="number_block_content_wkc_neirong">
+                          {{items.taskCentent}}
+                        </view>
+                      </view>
+                    </view>
+                    <view class='number_block_tixing'>
+                      <view wx:if="{{items.showReminderTime}}" class='tixing_wkc' style='color:{{chooseColor.remindColor(items.isRemind) ? "#969696FF" : "#25C3F1FF"}}'>
+                        <view>
+                          {{items.showReminderTime}}
+                        </view>
+                        <view wx:if="{{chooseColor.remindColor(items.isRemind)}}">
+                          已提醒
+                        </view>
+                        <view wx:else>
+                          提醒
+                        </view>
+                        <!-- <image class="event_odd_number_img" src="{{chooseColor.switchColor(myUnFinishItem.happendDate).tubiao}}"></image> -->
+                      </view>
+                      <view wx:else class='tixing_wkc' style='color:{{chooseColor.remindColor(items.isRemind) ? "#969696FF" : "#25C3F1FF"}}'>
+                        无提醒
+                      </view>
+                      <!-- <image class="event_odd_number_img" src="{{chooseColor.switchColor(myUnFinishItem.happendDate).tubiao}}"></image> -->
+                    </view>
+                    <image class="event_odd_number_img" src="{{chooseColor.switchColor(myUnFinishItem.happendDate).tubiao}}"></image>
+                  </view>
+                </block>
+              </view>
+              <view wx:else>
+                <view wx:for="{{shijianItem.taskInfos}}" wx:key="{{index}}" wx:for-item="items">
+                  <view wx:if="{{index===0}}" class='event_number' style='background:{{chooseColor.switchColor(myUnFinishItem.happendDate).background}}' bindtap='skipDetail' data-id='{{items.id}}' data-item="{{items}}" data-happendTime="{{shijianItem.happendTime}}" data-happendWeek="{{shijianItem.happendWeek}}" data-isFinish="false">
+                    <view class='number_block_content' style="color:{{chooseColor.switchColor(myUnFinishItem.happendDate).contentColor}}">
+                      <view class='number_block_content_wkc' > 
+                        <view  style='color:#00B1FFFF' style="display:{{items.taskTitle ? 'inline':'none'}}">
+                          {{chooseColor.titleColor(items.taskTitle)}}
+                        </view>
+                        <view class="number_block_content_wkc_neirong">
+                          {{items.taskCentent}}
+                        </view>
+                      </view>
+                    </view>
+                    <block>
+                    <view>
+                      <!-- <image class='number_block_img'></image> -->
+                      <view wx:if="{{items.showReminderTime}}" class='tixing_wkc' style='color:{{chooseColor.remindColor(items.isRemind) ? "#969696FF" : "#25C3F1FF"}}'>
+                        <view>
+                          {{items.showReminderTime}}
+                        </view>
+                        <view wx:if="{{chooseColor.remindColor(items.isRemind)}}">
+                          已提醒
+                        </view>
+                        <view wx:else>
+                          提醒
+                        </view>
+                        <!-- <image class="event_odd_number_img" src="{{chooseColor.switchColor(myUnFinishItem.happendDate).tubiao}}"></image> -->
+                      </view>
+                      <view wx:else style='color:{{chooseColor.remindColor(items.isRemind) ? "#969696FF" : "#25C3F1FF"}}'>
+                        无提醒
+                      </view>
+                      <!-- <image class="event_odd_number_img" src="{{chooseColor.switchColor(myUnFinishItem.happendDate).tubiao}}"></image> -->
+                    </view>
+                    <image class="event_odd_number_img" src="{{chooseColor.switchColor(myUnFinishItem.happendDate).tubiao}}"></image>
+                    </block>
+                  </view>
+                </view>
+
+                <view class="event_odd_number">
+                  <block wx:for="{{shijianItem.taskInfos}}" wx:key="indext" wx:for-item="itemts">
+                    <block wx:if="{{index>0}}" >
+                      <view class='event_number_block'  style='background:{{chooseColor.switchColor(myUnFinishItem.happendDate).background}}' bindtap='skipDetail' data-id='{{itemts.id}}' data-item="{{itemts}}" data-happendTime="{{shijianItem.happendTime}}" data-happendWeek="{{shijianItem.happendWeek}}" data-isFinish="false">
+                        <view class='number_block_content' style='color:{{chooseColor.switchColor(myUnFinishItem.happendDate).contentColor}}'>
+                          
+                          <view class='number_block_content_wkc'>
+                            <view style='color:#00B1FFFF' style="display:{{itemts.taskTitle ? 'inline':'none'}}">
+                              {{chooseColor.titleColor(itemts.taskTitle)}}
+                            </view>
+                            <view class="number_block_content_wkc_neirong">
+                              {{itemts.taskCentent}}
+                            </view>
+                          </view>
+                        </view>
+                        <view class='number_block_tixing'>
+                          <view wx:if="{{itemts.showReminderTime}}" class='tixing_wkc' style='color:{{chooseColor.remindColor(itemts.isRemind) ? "#969696FF" : "#25C3F1FF"}}'>
+                            <view>
+                              {{itemts.showReminderTime}}
+                            </view>
+                            <view wx:if="{{chooseColor.remindColor(itemts.isRemind)}}">
+                              已提醒
+                            </view>
+                            <view wx:else>
+                              提醒
+                            </view>
+                        </view>
+                        
+                        <view wx:else style='color:{{chooseColor.remindColor(itemts.isRemind) ? "#969696FF" : "#25C3F1FF"}}'>
+                          无提醒
+                        </view>
+                        </view>
+                        <image class="event_odd_number_img" src="{{chooseColor.switchColor(myUnFinishItem.happendDate).tubiao}}"></image>
+                      </view>
+                      
+                    </block>
+                  </block>
+                </view>
+              </view>
+            </view>
+  
+      </view>
+
+  </view>
+
+    </view>
+  </view>  
+
+
+<!-- 完成 -->
+<view wx:if="{{currentTab==1}}">
+    <view wx:for="{{myFinish}}" wx:for-item="myFinishItem" wx:key="{{happendTime}}">
+      <view >
+        <view class='list_title'>
+          <view class='list_title_happendDate' style="color:{{chooseColor.switchColor(myFinishItem.happendDate).titleColor}}">
+            {{myFinishItem.happendDate}}
+          </view>
+          <view wx:for="{{myFinishItem.shijian}}" wx:for-item="shijianItem" >
+            <view wx:if="{{index===0}}" class='list_title_left'>
+              <view class='list_title_left_happendtime'>{{shijianItem.happendTime}}</view>
+              <view class='list_title_left_happendWeek'>{{shijianItem.happendWeek}}</view>
+            </view>
+          </view>
+        </view>
+        
+
+        <view class='{{chooseColor.manyDayStyle(myFinishItem.shijian.length)}}'>
+           <view wx:for="{{myFinishItem.shijian}}" wx:for-item="shijianItem" >
+              <view wx:if="{{index>0}}" class='list_title_left'>
+                <view class='list_title_left_happendtime'>{{shijianItem.happendTime}}</view>
+                <view class='list_title_left_happendWeek'>{{shijianItem.happendWeek}}</view>
+              </view>
+              <view wx:if="{{(shijianItem.taskInfos.length) % 2 === 0}}" class='odd_number'>
+                <block wx:for="{{shijianItem.taskInfos}}" wx:key="{{index}}" wx:for-item="items">
+                  <view class='number_block number_block_wancheng'>
+                    <view class='number_block_content number_block_content_wancheng'>
+                      
+                      <view class='number_block_content_wkc' bindtap='skipDetail' data-id='{{items.id}}' data-item="{{items}}" data-happendTime="{{shijianItem.happendTime}}" data-happendWeek="{{shijianItem.happendWeek}}" data-isFinish="true">
+                        <view style="display:{{items.taskTitle ? 'inline':'none'}}">
+                          {{chooseColor.titleColor(items.taskTitle)}}
+                        </view>
+                        <view class="number_block_content_wkc_neirong">
+                          {{items.taskCentent}}
+                        </view>
+                      </view>
+                    </view>
+                    <view class='number_block_tixing number_block_tixing_wancheng'>
+                      <view wx:if="{{items.showReminderTime}}" class='tixing_wkc'>
+                        <view>
+                          {{items.showReminderTime}}
+                        </view>
+                        <view>
+                          已完成
+                        </view>
+                      </view>
+                      <view wx:else>
+                        无提醒 已完成
+                      </view>
+                    </view>
+                  </view>
+                </block>
+              </view>
+              <view wx:else>
+                <view wx:for="{{shijianItem.taskInfos}}" wx:key="{{index}}" wx:for-item="items">
+                  <view wx:if="{{index===0}}" class='event_number number_block_wancheng' >
+                    <view class='number_block_content number_block_content_wancheng'>
+                      <view class='number_block_content_wkc' bindtap='skipDetail' data-id='{{items.id}}' data-item="{{items}}" data-happendTime="{{shijianItem.happendTime}}" data-happendWeek="{{shijianItem.happendWeek}}" data-isFinish="true">
+                        <view style="display:{{items.taskTitle ? 'inline':'none'}}">
+                          {{chooseColor.titleColor(items.taskTitle)}}
+                        </view>
+                        <view class="number_block_content_wkc_neirong">
+                          {{items.taskCentent}}
+                        </view>
+                      </view>
+                    </view>
+                    <block>
+                    <view class='number_block_tixing_wancheng'>
+                      <image class='number_block_img'></image>
+                      <view wx:if="{{items.showReminderTime}}" class='tixing_wkc'>
+                        <view>
+                          {{items.showReminderTime}}
+                        </view>
+                        <view>
+                          已完成
+                        </view>
+                      </view>
+                      <view wx:else>
+                        无提醒 已完成
+                      </view>
+                    </view>
+                      
+                    </block>
+                  </view>
+                </view>
+
+                <view class="event_odd_number">
+                  <block wx:for="{{shijianItem.taskInfos}}" wx:key="indext" wx:for-item="itemts">
+                    <block wx:if="{{index>0}}" >
+                      <view class='event_number_block number_block_wancheng'>
+                        <view class='number_block_content number_block_content_wancheng'>
+                          
+                          <view class='number_block_content_wkc' bindtap='skipDetail' data-id='{{itemts.id}}' data-item="{{itemts}}" data-happendTime="{{shijianItem.happendTime}}" data-happendWeek="{{shijianItem.happendWeek}}" data-isFinish="true">
+                            <view style="display:{{itemts.taskTitle ? 'inline':'none'}}">
+                              {{chooseColor.titleColor(itemts.taskTitle)}}
+                            </view>
+                            <view class="number_block_content_wkc_neirong">
+                              {{itemts.taskCentent}}
+                            </view>
+                          </view>
+                        </view>
+                        <view class='number_block_tixing number_block_tixing_wancheng'>
+                          <view wx:if="{{itemts.showReminderTime}}" class='tixing_wkc'>
+                            <view>
+                              {{itemts.showReminderTime}}
+                            </view>
+                            <view>
+                              已完成
+                            </view>
+                          </view>
+                          <view wx:else>
+                            无提醒 已完成
+                          </view>
+                        </view>
+                        
+                      </view>
+                    </block>
+                  </block>
+                </view>
+              </view>
+            </view>
+  
+      </view>
+
+  </view>
+
+    </view>
+  </view>
+<!-- 头像弹框 -->
+
+<tabbar tabbar="{{tabbar}}"></tabbar>

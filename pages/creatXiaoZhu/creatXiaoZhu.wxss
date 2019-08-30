@@ -1,0 +1,70 @@
+/* pages/creatXiaoZhu/creatXiaoZhu.wxss */
+
+.chuangjian {
+  margin:auto 40rpx; 
+}
+.chuangjian_title {
+  display: flex;
+  /* margin: 44rpx 40rpx; */
+  margin-top: 44rpx;
+  margin-bottom: 44rpx;
+  justify-content: space-between;
+}
+.chuangjian_title_creatteam {
+  font-size: 48rpx;
+  height:48rpx;
+  color:rgba(0,0,0,1);
+  line-height:48rpx;
+  font-family:PingFang-SC-Medium;
+}
+.chuangjian_title_shengyu {
+  height:30rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(0,177,255,1);
+  line-height:28rpx;
+}
+.ismember_fabu_yunxu {
+  height:30rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(142,142,142,1);
+  line-height:28rpx;
+}
+
+.chuangjian_input {
+  height:88rpx;
+  background:rgba(245,246,247,1);
+  border-radius:10rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+
+}
+.ismember_fabu {
+  display: flex;
+  justify-content: space-between;
+  /* margin: 44rpx 40rpx; */
+  margin-top: 44rpx;
+  margin-bottom: 44rpx;
+}
+.chuangjian_wancheng {
+  border-radius:22px;
+  height: 86rpx;
+  text-align: center;
+  line-height: 86rpx;
+}
+.chuangjian_wancheng_Y {
+  background:rgba(245,245,245,1);
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(205,205,205,1);
+}
+.chuangjian_wancheng_N {
+  background:linear-gradient(180deg,rgba(108,235,205,1) 0%,rgba(0,205,154,1) 100%);
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+}

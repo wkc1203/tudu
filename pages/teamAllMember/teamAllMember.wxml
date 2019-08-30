@@ -1,0 +1,19 @@
+<!--pages/teamAllMember/teamAllMember.wxml-->
+<view class="all_member">
+  <view class="all_member_title">{{teamName}}</view>
+  <view class="all_member_guan">
+    <view class="all_member_guan_num">共有{{memberNum}}名成员</view>
+    <view bindtap="tiaozhuanGuanli">管理</view>
+  </view>
+  <view wx:for="{{memberList}}">
+    <view bindtap="showComponent" class="all_list_li">
+      <view class="all_list_li_li">
+        <image src="{{item.headImg}}" class="all_list_li_img"></image>
+        <view class="all_list_li_nicheng" style="color:{{item.memberType==1 ? '#00CD9A':''}}">{{item.memberName||item.nickName}}</view>
+      </view>
+      <view wx:if="{{item.memberType==1}}" class="all_list_li_chuangjian">创建者</view>
+    </view>
+  </view>
+</view>
+
+<alert id="myComponent" chengyuantouxiang="{{chengyuantouxiang}}" nicheng="{{nicheng}}" guanlianNum="{{guanlianNum}}" />

@@ -1,0 +1,96 @@
+
+function switchColor(data) {
+  var statusColor = {};
+  var titleColor = "";
+  var contentColor = "";
+  var background = "";
+  var tubiao= "";
+  switch (data) {
+    case "今天":
+      titleColor = "#8EE7D1FF",
+      contentColor = "#4C6E64FF",
+      background = "#EBFBF7FF",
+      tubiao ="../../public/img/bg-today.png"
+      break;
+    case "明天":
+      titleColor = "#C5E791FF",
+      contentColor = "#525D4AFF",
+      background = "#F1FAE2FF",
+      tubiao = "../../public/img/bg-tomorrow.png"
+      break;
+    case "后天":
+      titleColor = "#FAC8A0FF",
+      contentColor = "#645648FF",
+      background = "#FDF5EFFF",
+      tubiao = "../../public/img/bg-lastTomorrow.png"
+      break;
+    case "本周":
+      titleColor = "#F7ADAFFF",
+      contentColor = "#6D565AFF",
+      background = "#FEECEFFF",
+      tubiao = "../../public/img/bg-thisWeek.png"
+      break;
+    case "下周":
+      titleColor = "#A799E5FF",
+      contentColor = "#686479FF",
+      background = "#EEEBFBFF",
+      tubiao = "../../public/img/bg-lastWeek.png"
+      break;
+    case "本月":
+      titleColor = "#A9C2E9FF",
+      contentColor = "#56637AFF",
+      background = "#EEF3FAFF",
+      tubiao = "../../public/img/bg-thisMonth.png"
+      break;
+    case "下月":
+      titleColor = "#93D4EAFF",
+      contentColor = "#4A6873FF",
+      background = "#E4F6FCFF",
+      tubiao = "../../public/img/bg-lastMonth.png"
+      break;
+  }
+  statusColor.titleColor = titleColor
+  statusColor.contentColor = contentColor
+  statusColor.background = background
+  statusColor.tubiao = tubiao
+  return statusColor
+}
+
+// 内容中的标题
+function titleColor(title){
+  if (typeof title == "object" && title == null) {
+    return ""
+  }
+  if (typeof title == "string" && title) {
+    return "#".concat(title,"#")
+  }
+  return title
+}
+// 是否是多天
+function manyDayStyle(data) {
+  if (data>1) {
+    return "incident_list"
+  }
+  return ""
+}
+// 内容是否已经提醒-颜色
+function remindColor (isRemind) {
+  if (isRemind===0) {
+    return false
+  }
+  return true
+}
+// 内容颜色
+function contentColor(content, site, joinMember) {
+  if (site) {
+    content.slice(0, content.indexOf(site))
+  }
+}
+
+module.exports = {
+  switchColor: switchColor,
+  titleColor: titleColor,
+  manyDayStyle: manyDayStyle,
+  remindColor: remindColor,
+
+}

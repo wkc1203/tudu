@@ -1,0 +1,80 @@
+/* components/tankuangComponent/tankuang.wxss */
+.mask {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modalDlg {
+  position: fixed;
+  z-index: 5000;
+  width: 100%;
+  height: 644rpx;
+  top: 50%;
+  background-color: #FFFFFF;
+  text-align: center;
+  border-radius: 14rpx;
+  overflow: hidden;
+}
+.tankuang_all {
+  margin: 24rpx 40rpx;
+}
+.modalDlg_title {
+  display: flex;
+  font-size:48rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  color:rgba(52,52,53,1);
+}
+.modalDlg_title_delet {
+  display: flex;
+  font-size:48rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  color:rgba(240,60,60,1);
+}
+.modalDlg_touxiang {
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 48rpx;
+}
+.img_touxiang {
+  width: 60rpx;
+  height: 60rpx;
+  overflow:hidden;
+  border-radius: 50%;
+  margin-right: 24rpx;
+  /* margin: 24rpx auto; */
+  /* margin-top: 98rpx; */
+  /* margin-left: 12rpx; */
+}
+.img_nicheng {
+  display: flex;
+  margin-right: 24rpx;
+}
+.modalDlg_input {
+  background:rgba(245,246,247,1);
+  border-radius:6rpx;
+  height:88rpx;
+  margin-top: 52rpx;
+  /* margin-bottom: 94rpx; */
+}
+.modalDlg_view_btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 94rpx
+}
+.modalDlg_view_btn_quxiao {
+  border-radius:44rpx;
+  width: 35vw;
+}
+.modalDlg_view_btn_queding {
+  background:linear-gradient(180deg,rgba(108,235,205,1) 0%,rgba(0,205,154,1) 100%);
+  border-radius:44rpx;
+  width: 35vw;
+}

@@ -1,0 +1,35 @@
+<!--pages/personalCenter/personalCenter.wxml-->
+<view class="personal">
+  <view class='user_left' >
+    <image src="../../public/img/personal.png" class="user_left_shang_img"></image>
+    <view class="user_left_block_touxiang">
+      <view class="user_left_img">
+        <open-data type="userAvatarUrl" />
+      </view>
+      <view class="user_left_name">
+        <open-data type="userNickName" />
+      </view>
+      <view wx:if="{{isChekIn==0}}" bindtap="dakai"class="user_left_daka">
+        <view class=" iconfont icon-daka user_left_daka_content">{{dakai}}</view>
+      </view>
+      <view wx:else class="user_left_daka">
+        <view class="user_left_daka_content_none_color">
+        {{dakai}}
+        </view>
+      </view>
+    </view>
+    <view class="my_content">
+      <view bindtap="chuangjianTeam" class="my_content_child">
+        <view class="my_content_child_num">{{chuangjianNum}}</view>
+        <view>创建的组</view>
+      </view>
+      <view bindtap="jiaruTeam" class="my_content_child">
+        <view class="my_content_child_num">{{jiaruNum}}</view>
+        <view>加入的组</view>
+      </view>
+    </view>
+  </view>
+  
+
+</view>
+

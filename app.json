@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/sendSay/sendSay",
+    "pages/team/team",
+    "pages/details/detail",
+    "pages/myTeam/myteam",
+    "pages/time/time",
+    "pages/creatXiaoZhu/creatXiaoZhu",
+    "pages/creatFinish/creatFinish",
+    "pages/teamMember/teamMember",
+    "pages/teamAllMember/teamAllMember",
+    "pages/guanliTeam/guanliTeam",
+    "pages/guanlian/guanlian",
+    "pages/personalCenter/personalCenter",
+    "pages/myTeamguanli/myTeamguanli",
+    "pages/jiaru/jiaru"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00CD9A",
+    "navigationBarTitleText": "凸度",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "tabbarComponent/icon/icon_home.png",
+        "selectedIconPath": "tabbarComponent/icon/icon_home_HL.png"
+      },
+      {
+        "pagePath": "pages/team/team",
+        "iconPath": "tabbarComponent/icon/icon_mine.png",
+        "selectedIconPath": "tabbarComponent/icon/icon_mine_HL.png",
+        "text": "小组"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap82.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
+}

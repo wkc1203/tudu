@@ -1,0 +1,90 @@
+/* pages/personalCenter/personalCenter.wxss */
+@import "../../public/wxss/all.wxss";
+
+.personal {
+  background:linear-gradient(360deg,rgba(0,232,202,0) 0%,rgba(0,207,158,0.75) 64%,rgba(0,205,154,1) 100%);
+  padding-top: 80rpx;
+  height: 1120rpx;
+}
+.user_left {
+  margin: 80rpx 80rpx;
+  margin-top: 0;
+  background-color: rgba(255,255,255,1);
+  box-shadow:0px 2px 6px 0px rgba(0,185,139,0.3);
+  border-radius:13px;
+  position: relative;
+  height: 960rpx;
+  /* height: 100% */
+}
+.user_left_shang_img {
+  border-radius: 26rpx 26rpx 0rpx 0rpx;
+  width: 100%;
+}
+.user_left_block_touxiang {
+  position: absolute;
+  top: 36%;
+  left: 21%;
+}
+.user_left_img {
+  width: 160rpx;
+  height: 160rpx;
+  overflow:hidden;
+  border-radius: 50%;
+  margin: 32rpx auto;
+  /* margin-left: 40rpx; */
+}
+.user_left_name {
+  width: 350rpx;
+  font-size: 50rpx;
+  font-weight:500;
+  color: #00664D;
+  margin: 12rpx auto;
+  text-align: center;
+}
+.user_left_daka {
+  display: flex;
+  margin: auto;
+  text-align: center;
+  width:148rpx;
+  height:48rpx;
+  background:rgba(245,246,247,1);
+  border-radius:24rpx;
+  color: rgba(0,205,154,1);
+}
+.user_left_daka_tubiao {
+  margin-left: 20rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC;
+  font-weight:400;
+}
+.user_left_daka_content_color {
+  color: rgba(0,205,154,1);
+}
+.user_left_daka_content_none_color {
+  color: rgba(173,179,188,1);
+  margin: auto;
+}
+.user_left_daka_content {
+  /* height:48rpx; */
+  margin: auto;
+  font-size:28rpx;
+  font-family:PingFang-SC;
+  font-weight:400;
+  /* margin-left: 6rpx; */
+  color: rgba(0,205,154,1);
+}
+.my_content {
+  display: flex;
+  justify-content: space-between;
+  margin: 24rpx 80rpx;
+  position: absolute;
+  top: 76%;
+}
+.my_content_child {
+  width: 30vw;
+  text-align: center;
+}
+.my_content_child_num {
+  text-align: center;
+  color:rgba(0,205,154,1);
+}

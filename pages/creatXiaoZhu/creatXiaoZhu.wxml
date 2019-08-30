@@ -1,0 +1,14 @@
+<!--pages/creatXiaoZhu/creatXiaoZhu.wxml-->
+
+<view class='chuangjian'>
+  <view class='chuangjian_title'>
+    <view class='chuangjian_title_creatteam'>创建小组</view>
+    <view class='chuangjian_title_shengyu'>还可创建{{shengyuCreat}}个小组</view>
+  </view>
+  <input placeholder='请输入小组名称' bindinput="setContent" class='chuangjian_input' placeholder-style="color:rgba(190,196,204,1)"></input>
+  <view class='ismember_fabu'>
+    <view class='ismember_fabu_yunxu'>允许成员发布事情</view>
+    <switch class='' color='#00CD9AFF' bindchange='changeFabu' checked/>
+  </view>
+  <view bindtap='creatFinish' class='chuangjian_wancheng {{content ? "chuangjian_wancheng_N" : "chuangjian_wancheng_Y"}}' disabled='{{content ? "true" : "false"}}'>完成</view>
+</view>

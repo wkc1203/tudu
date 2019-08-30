@@ -1,0 +1,90 @@
+<!--pages/time/time.wxml-->
+
+
+<view class='time_list'>
+  <view class='time_list_first'>
+    <view class='time_list_date {{currentTabtime==1 ? "on" : ""}}' data-tab='1' bindtap='switchTab'>
+      <view class='time_list_data_day ' style='color: {{currentTabtime==1 ? "rgba(255,255,255,1)" : "rgba(173,179,188,1)"}}'>今天</view>
+      <view class='time_list_data_riqi' style='color: {{currentTabtime==1 ? "rgba(255,255,255,1)" : "rgba(201,206,214,1)"}}'>{{today}}</view>
+    </view>
+    <view class='time_list_date {{currentTabtime==2 ? "on" : ""}}' data-tab='2' bindtap='switchTab'>
+      <view class='time_list_data_day' style='color: {{currentTabtime==2 ? "rgba(255,255,255,1)" : "rgba(173,179,188,1)"}}'>明天</view>
+      <view class='time_list_data_riqi' style='color: {{currentTabtime==2 ? "rgba(255,255,255,1)" : "rgba(201,206,214,1)"}}'>{{tomorrow}}</view>
+    </view>
+    <view class='time_list_date {{currentTabtime==3 ? "on" : ""}}' data-tab='3' bindtap='switchTab'>
+      <view class='time_list_data_day' style='color: {{currentTabtime==3 ? "rgba(255,255,255,1)" : "rgba(173,179,188,1)"}}'>后天</view>
+      <view class='time_list_data_riqi' style='color: {{currentTabtime==3 ? "rgba(255,255,255,1)" : "rgba(201,206,214,1)"}}'>{{lastTomorrow}}</view>
+    </view>
+  </view>
+  
+  <view>
+    <view class='time_list_second'>
+      <!-- <input class='time_list_input' type='number' maxlength='2' value='00' placeholder-class='placeholder_input'></input> -->
+      <view class='time_list_input'>
+        <!-- <input class='time_list_input_shuru' type='number' maxlength='2' placeholder='00' placeholder-style='color:rgba(173,179,188,1)' value='{{hour}}' bindinput="changeInputValue" data-style='hour'/> -->
+        <view class='time_list_input_shuru'>
+          <picker mode = "selector" bindchange="bindPickerChange" value="{{index}}" range="{{arrayList}}" >
+            <view class="tui-picker-detail" >
+              {{arrayList[index]}}
+            </view>
+            <view class="iconfont icon-qiehuan tui-picker-detail_icon"></view>
+          </picker>
+        </view>
+        
+        
+        <view class='time_list_input_unit'>时</view>
+      </view>
+      <view class='time_list_input'>
+        <!-- <input class='time_list_input_shuru' type='number' maxlength='2' placeholder='00' placeholder-style='color:rgba(173,179,188,1)' value='{{minute}}' bindinput="changeInputValue" data-style='minute'/> -->
+        <view class='time_list_input_shuru'>
+          <picker mode = "selector" bindchange="bindPickerChangeMinute" value="{{indexminue}}" range="{{minuList}}" >
+            <view class="tui-picker-detail" >
+              {{minuList[indexminue]}}
+            </view>
+            <view class="iconfont icon-qiehuan tui-picker-detail_icon"></view>
+          </picker>
+        </view>
+        <view class='time_list_input_unit'>分</view>
+      </view>
+    </view>
+  </view>
+
+  <view>
+    <view class='other_time_list' bindtap="clickPick">
+      <view class="tui-picker-content" bindtap="clickPick">
+        <picker  mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" range="{{dateTimeArray1}}">
+          <view class="tui-picker-detail" >
+            <view>选择其他时间:</view>
+            <view hidden="{{pickerHidden}}" class="tui-picker-detail_time">
+              {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class='time_tixing'>
+    <view class='time_tixing_moren'>
+      <view>
+        小程序提醒
+      </view>
+      <radio checked='{{true}}' color='#00CD9AFF' class='time_tixing_xuanzhe_anniu'/>
+    </view>
+    <view class='time_tixing_xuanzhe'>
+      <view class='time_tixing_xuanzhe_switch'>
+        短信提醒
+      </view>
+      <!-- <switch class='time_tixing_xuanzhe_anniu' color='#00CD9AFF' bindchange='remindDuanXin' bindtap='{{ isduanxin ? "":"getPhoneNumber"}}'/> -->
+      <view class='swiper-tab {{currentTab==1 ? "swiper-tab-on" : ""}}'>
+        <view class="tab-list-left {{currentTab==0 ? 'ont' : ''}}" data-current="0" bindtap="swichNav"></view>
+        <view class="tab-list-right {{currentTab==1 ? 'ont' : ''}}" data-current="1" bindtap="swichNav">
+          <button wx:if="{{!phone}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class='duanxin_button'></button>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+
+  <button bindtap='sendTime' class='time_finish'>完成</button>
+</view>

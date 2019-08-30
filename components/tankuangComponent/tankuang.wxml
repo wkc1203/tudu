@@ -1,0 +1,35 @@
+<!--components/tankuangComponent/tankuang.wxml-->
+
+<view>
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modalDlg" wx:if="{{showModal}}">
+    <view class="tankuang_all">
+        <view wx:if="{{coazuoType==1}}" class="modalDlg_title">修改备注名称</view>
+        <view wx:if="{{coazuoType==2}}" class="modalDlg_title_delet">确定删除该成员吗?</view>
+        <view wx:if="{{coazuoType==3}}" class="modalDlg_title_delet">确定解散小组吗?</view>
+        <view wx:if="{{coazuoType==4}}" class="modalDlg_title">修改小组名称</view>
+        <view wx:if="{{coazuoType==1||coazuoType==2||coazuoType==4}}">
+          <view class="modalDlg_touxiang">
+            <image src="{{chengyuantouxiang}}" class="img_touxiang"></image>
+            <view class="img_nicheng">{{nicheng}}</view>
+            <view wx:if="{{coazuoType==1}}">小组内默认显示备注名称</view>
+          </view>
+          <input wx:if="{{coazuoType==1}}" placeholder="请输入成员备注名称" bindinput="setInputValue" class="modalDlg_input">{{inputValue}}</input>
+          <input wx:if="{{coazuoType==4}}" placeholder="请输入小组名称" bindinput="setInputValue" class="modalDlg_input">{{inputValue}}</input>
+        </view>
+        <view wx:else class="modalDlg_touxiang">
+          确定要解散{{teamName}}吗？解散后将清空数据
+        </view>
+        
+        <view class="modalDlg_view_btn">
+          <button bindtap="cancel" class="modalDlg_view_btn_quxiao">取消</button>
+          <button wx:if="{{coazuoType==1}}" bindtap="confirm" class="modalDlg_view_btn_queding">确定</button>
+          <button wx:if="{{coazuoType==4}}" bindtap="xiugaiTeamName" class="modalDlg_view_btn_queding">确定</button>
+          <button wx:if="{{coazuoType==2||coazuoType==3}}" bindtap="deleteMember" class="modalDlg_view_btn_queding">确定</button>
+        </view>
+    </view>
+    
+  </view>
+</view>
+
+

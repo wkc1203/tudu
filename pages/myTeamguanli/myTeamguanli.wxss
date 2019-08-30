@@ -1,0 +1,77 @@
+/* pages/myTeamguanli/myTeamguanli.wxss */
+.wind {
+  width:100%;
+  height:100%;
+  min-height: 490px;
+  background:rgba(240,243,242,1);
+  padding-top:32rpx;
+}
+.wind_card {
+  display: flex;
+  flex-direction: column;
+  padding: 32rpx 44rxp;
+  width:90vw;
+  height:328rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 2px 6px 0px rgba(224,236,232,1);
+  border-radius:14rpx;
+  margin: 56rpx 40rpx;
+}
+.wind_card_title {
+  display: flex;
+  font-size:44rpx;
+  font-family:PingFangSC;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  margin: 20rpx 32rpx;
+}
+.wind_card_img {
+  display: flex;
+  margin: 0rpx 20rpx;
+}
+.team_left_wkc {
+  width: 88rpx;
+  height: 88rpx;
+  overflow:hidden;
+  border-radius: 50%;
+  /* margin: 24rpx auto; */
+  margin-top: 24rpx;
+  margin-left: 12rpx;
+}
+.team_left_wkc_img {
+  width: 88rpx;
+  height: 88rpx;
+}
+.wind_card_delt {
+  display: flex;
+  justify-content: space-between;
+  margin: 44rpx 40rpx;
+}
+.wind_card_delt_chengyuan {
+  display: flex;
+}
+.wind_card_delt_chengyuan_cy {
+  font-size:30rpx;
+  font-family:PingFang-SC;
+  font-weight:400;
+  color:rgba(173,179,188,1);
+}
+.wind_card_delt_chengyuan_num {
+  margin-left: 16rpx;
+  font-size:30rpx;
+  font-family:DINPro;
+  font-weight:500;
+  color:rgba(0,205,154,1);
+}
+.wind_card_delt_type {
+  width:120rpx;
+  height:46rpx;
+  line-height: 46rpx;
+  background:rgba(244,246,248,1);
+  border-radius:24rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC;
+  font-weight:400;
+  color:rgba(0,205,154,1);
+  text-align: center;
+}

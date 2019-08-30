@@ -1,0 +1,22 @@
+<!--pages/jiaru/jiaru.wxml-->
+<view class='yaoqing'>
+  <view class="yaoqing_back_img">
+    <image src="../../public/img/bg_invitation.png" class="yaoqing_back_img_content"/>
+    <view class="yaoqing_tou">
+      <image src="{{touxiang}}" class="user_left_img"/>
+      <view class="user_left_nicheng">{{nicheng}}</view>
+      <view class='team_keyao_man'>邀请您加入</view>
+    </view>
+  </view>
+  
+    
+
+  
+  
+  <view class='team_title'>{{teamName}}</view>
+
+  <!-- <view class='yaoqing_share_button' open-type='share' bindtap="jiaruXiaoZhu">加入小组</view> -->
+  <!-- <button class='yaoqing_share_button' bindtap="jiaruXiaoZhu">加入小组</button> -->
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='yaoqing_share_button'>开启我的凸度</button>
+</view>
+

@@ -1,0 +1,112 @@
+@import "../../public/wxss/all.wxss";
+
+.delti_page {
+  height: 100%;
+}
+/* 上半部分 */
+.before_header {
+  margin-bottom: 130rpx;
+  height: 50%;
+  min-height: 482rpx;
+}
+.list_title_left {
+  font-family:PingFangSC-Regular;
+  color: #C8DADF;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  margin: 32rpx auto;
+  margin-left: 40rpx;
+  font-weight:400;
+  display: flex;
+  /* justify-content: flex-start */
+}
+
+.list_content_content,.list_content_content_list {
+  display: inline;
+}
+.list_title_left_touxiang {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 30rpx;
+}
+.list_title_left_none {
+  display: none;
+}
+.list_title_left_happendtime {
+  height: 36rpx;
+  line-height: 36rpx;
+}
+.list_title_left_nicheng {
+  margin: auto 16rpx;
+}
+.list_title_left_happendWeek {
+  margin-left: 16rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+}
+
+.list_content_detail {
+  margin-left: 40rpx;
+  position: relative;
+  font-size:34rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  line-height:54rpx;
+}
+.list_content_detail_tixing {
+  margin-left: 40rpx;
+  margin-top: 58rpx;
+  /* margin-bottom: 48rpx; */
+  position: absolute;
+  height:28rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(173,179,188,1);
+  line-height:28rpx;
+}
+
+/* 下半部分 */
+
+.tubiao_css {
+  width: 144rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: rgba(255,255,255,1);
+  text-align: center;
+  font-size: 50rpx;
+}
+.after_bottom {
+  width:750rpx;
+  min-height: 45vh;
+  /* margin-top: 500rpx; */
+  background:rgba(245,246,247,1);
+}
+.after_bottom_button {
+  display: flex;
+  padding-top: 52rpx;
+  justify-content: space-around;
+}
+.after_bottom_switch {
+  /* margin: 40rpx 40rpx; */
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-top: 220rpx;
+}
+.after_bottom_switch_area {
+  height: 72rpx;
+  width: 670rpx;
+}
+.after_bottom_switch_huakuai {
+  height: 92rpx;
+  width: 200rpx;
+  background: linear-gradient(180deg,rgba(108,235,205,1) 0%,rgba(0,205,154,1) 100%);
+  border-radius:12rpx;
+  font-size:14px;
+  font-family:PingFang-SC;
+  font-weight:400;
+  text-align: center;
+  line-height: 92rpx;
+  margin-top: -4rpx;
+  color:rgba(255,255,255,1);
+}

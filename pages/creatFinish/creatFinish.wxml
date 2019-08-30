@@ -1,0 +1,8 @@
+<!--pages/creatFinish/creatFinish.wxml-->
+<view class='yaoqing'>
+  <image src="../../public/img/img-cjcg.png" class="yaoqing_img"/>
+  <view class='team_title'>{{teamName}}</view>
+  <view class='team_keyao_man'>可邀请{{memberNum}}人进组</view>
+  <!-- <view class='yaoqing_share_button' open-type='share'>邀请成员加入</view> -->
+  <button class='yaoqing_share_button' open-type='share'>邀请成员加入</button>
+</view>

@@ -1,0 +1,84 @@
+<!--pages/sendSay/sendSay.wxml-->
+
+<!-- <view class="sendlocation_wei">
+  <button class='iconfont icon-quxiao' bindtap='alert'/>
+  <button>发布到我的</button>
+  <button>发布到小组</button>
+</view> -->
+<view class="swiper-tab">
+    <view style="padding-left:5px;" class="tab-list-left {{currentTab==0 ? 'on' : 'tab-list-shengyu'}}" data-current="0" bindtap="swichNav">
+      <view class="tab-list_content" data-current="0" >
+        <image class="daiban_icon_show" data-current="0" src='{{currentTab==0 ? "../../public/img/select_mine.png" : "../../public/img/unselect_mine.png"}}'></image>
+        <view class="tab-list_left_content_neirong" data-current="0">我的</view>
+      </view>
+    </view>
+    <view class="tab-list-right {{currentTab==1 ? 'on' : 'tab-list-shengyu'}}" data-current="1" bindtap="swichNav" >
+
+        <view class="tab-list_content" data-current="1" >
+          <view class='iconfont icon-xiaozu {{currentTab==1 ? "wancheng_icon_show" : ""}}' data-current="1"/>
+          <!-- <view class="tab-list_left_content_neirong">{{xiaozuName}}</view> -->
+          <picker class="tab-list_content_pick" mode = "selector" bindchange="bindPickerChange" value="{{objectArray[rangekey].value}}" range="{{objectArray}}" range-key='{{"name"}}' data-current="1">
+            <view class="picker" data-current="1">
+              {{objectArray[rangekey].name||"小组"}}
+            </view>
+          </picker>
+        </view>
+    </view>
+  </view>
+  <swiper current="{{currentTab}}" bindchange="bindChange" style="height:100%;">
+    <swiper-item>
+    </swiper-item>
+    <swiper-item>
+    </swiper-item>
+  </swiper>
+
+
+<!-- <view class='detail-view'> -->
+  <!-- <text class='detail-placeholder' hidden='{{isHidePlaceholder}}'>
+    请在这里进行时间描述，点击#分割标题与内容你还可以设置提醒时间并插入地理位置
+  </text> -->
+  <view class='detail-view'>
+    <textarea class='detail-textarea' maxlength='{{textMax}}' bindfocus='getTextareaInput' bindblur="getTextareaOut" cursor-spacing="230" curos="{{curos}}" placeholder='请在这里进行时间描述，点击#分割标题与内容你还可以设置提醒时间并插入地理位置' placeholder-class="placeholderClass" style="height:{{height}}"
+  value='{{insertContent}}' bindinput="inputText"/>
+  </view>
+
+  
+  
+<!-- </view> -->
+
+<modal hidden="{{hidden}}" title="提示" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}">
+    {{modalContent}}
+</modal>
+
+<view class='tixingTime'>
+  <view hidden='{{tixingTimeIsShow}}' class='tixing_time'>
+    <image class='tixing_time_img'></image>
+    <view class='tixing_time_content'>
+      {{tixingTimeContent}}
+    </view>
+  </view>
+  <view class='text_number_location'>
+    {{currentWordNumber||0}}/{{textMax}}
+  </view>
+</view>
+
+<view class='button_icon_list'>
+    <view class='icon_button'>
+      <view bindtap="insertSymbol" class='iconfont icon-icon-test' style="color:{{!insertContent?'#25C3F1':'#D1D5DB'}}"/>
+      <view wx:if='{{currentTab==1}}' bindtap='insertTeamMember' class='iconfont icon-icon-test1' style="color:#C9BDFB"></view>
+      <view class='iconfont icon-shijian' bindtap='getTime' style="color:#FC8172"/>
+      <view bindtap='locationClick' class='iconfont icon-weizhi' style="color:#4DD48CFF"/>
+    </view>
+    <!-- <view bindtap='sendMessage' class='fabu_button'>发布</view> -->
+    <form bindsubmit="submitInfo" report-submit='{{true}}' >
+      <button form-type="submit" class='fabu_buttont'>
+        <view bindtap='sendMessage' style="color:{{!insertContent?'#CDCDCD':'#00CD9A'}}">发布</view>
+      </button>
+    </form>
+
+</view>
+<!-- <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100vw; height: 100vh;">
+ <cover-view bindlongtap='controlClick'>
+  huigui
+</cover-view>
+</map> -->

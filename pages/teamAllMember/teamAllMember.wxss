@@ -1,0 +1,66 @@
+/* pages/teamAllMember/teamAllMember.wxss */
+
+
+.all_member {
+  margin: 52rpx 40rpx;
+}
+.all_member_title {
+  font-family:PingFangSC;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  margin-bottom: 40rpx;
+}
+.all_member_guan {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 44rpx;
+}
+.all_member_guan_num {
+  width:220rpx;
+  height:56rpx;
+  line-height: 56rpx;
+  background:rgba(244,246,248,1);
+  border-radius:30rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC;
+  font-weight:400;
+  color:rgba(173,179,188,1);
+  text-align: center;
+}
+
+.all_list_li {
+  display: flex;
+  margin-bottom: 20rpx;
+  justify-content: space-between;
+}
+.all_list_li_li {
+  display: flex;
+}
+
+.all_list_li_img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}
+.all_list_li_nicheng {
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 24rpx;
+}
+.all_list_li_chuang {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.all_list_li_chuangjian {
+  width:128rpx;
+  height:48rpx;
+  line-height: 48rpx;
+  background:rgba(244,246,248,1);
+  border-radius:24rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC;
+  font-weight:400;
+  color:rgba(0,205,154,1);
+  text-align: center;
+  margin: 25rpx 0;
+}
